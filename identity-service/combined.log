@@ -1,0 +1,244 @@
+{"cause":{"commonWireVersion":0,"compatible":true,"heartbeatFrequencyMS":10000,"localThresholdMS":15,"logicalSessionTimeoutMinutes":null,"maxElectionId":null,"maxSetVersion":null,"servers":{"localhost:27018":{"$clusterTime":null,"address":"localhost:27018","arbiters":[],"electionId":null,"error":{"beforeHandshake":false,"errorLabelSet":{}},"hosts":[],"iscryptd":false,"lastUpdateTime":30641,"lastWriteDate":0,"logicalSessionTimeoutMinutes":null,"maxBsonObjectSize":null,"maxMessageSizeBytes":null,"maxWireVersion":0,"maxWriteBatchSize":null,"me":null,"minRoundTripTime":0,"minWireVersion":0,"passives":[],"primary":null,"roundTripTime":-1,"setName":null,"setVersion":null,"tags":{},"topologyVersion":null,"type":"Unknown"}},"setName":null,"stale":false,"type":"Unknown"},"errorLabelSet":{},"level":"error","message":"connect ECONNREFUSED ::1:27018, connect ECONNREFUSED 127.0.0.1:27018","reason":{"commonWireVersion":0,"compatible":true,"heartbeatFrequencyMS":10000,"localThresholdMS":15,"logicalSessionTimeoutMinutes":null,"maxElectionId":null,"maxSetVersion":null,"servers":{"localhost:27018":{"$clusterTime":null,"address":"localhost:27018","arbiters":[],"electionId":null,"error":{"beforeHandshake":false,"errorLabelSet":{}},"hosts":[],"iscryptd":false,"lastUpdateTime":30641,"lastWriteDate":0,"logicalSessionTimeoutMinutes":null,"maxBsonObjectSize":null,"maxMessageSizeBytes":null,"maxWireVersion":0,"maxWriteBatchSize":null,"me":null,"minRoundTripTime":0,"minWireVersion":0,"passives":[],"primary":null,"roundTripTime":-1,"setName":null,"setVersion":null,"tags":{},"topologyVersion":null,"type":"Unknown"}},"setName":null,"stale":false,"type":"Unknown"},"service":"identity-service","stack":"MongooseServerSelectionError: connect ECONNREFUSED ::1:27018, connect ECONNREFUSED 127.0.0.1:27018\n    at _handleConnectionErrors (C:\\Users\\Asus\\Desktop\\RSC CRM\\Gourav\\nodejs\\social-media-microservices\\identity-service\\node_modules\\mongoose\\lib\\connection.js:1180:11)\n    at NativeConnection.openUri (C:\\Users\\Asus\\Desktop\\RSC CRM\\Gourav\\nodejs\\social-media-microservices\\identity-service\\node_modules\\mongoose\\lib\\connection.js:1111:11)\n    at async connectDB (C:\\Users\\Asus\\Desktop\\RSC CRM\\Gourav\\nodejs\\social-media-microservices\\identity-service\\src\\database\\db.js:6:9)\n    at async startServer (C:\\Users\\Asus\\Desktop\\RSC CRM\\Gourav\\nodejs\\social-media-microservices\\identity-service\\src\\server.js:24:9)","timestamp":"2026-06-28T17:32:35.516Z"}
+{"level":"info","message":"MongoDB connected successfully","service":"identity-service","timestamp":"2026-06-28T17:34:12.600Z"}
+{"level":"info","message":"🚀 Hybrid Server fully live on port 8001!","service":"identity-service","timestamp":"2026-06-28T17:34:12.606Z"}
+{"level":"info","message":"👉 REST APIs: http://localhost:8001","service":"identity-service","timestamp":"2026-06-28T17:34:12.607Z"}
+{"level":"info","message":"👉 GraphQL Endpoint: http://localhost:8001/graphql","service":"identity-service","timestamp":"2026-06-28T17:34:12.607Z"}
+{"level":"info","message":"redis client connected successfully","service":"identity-service","timestamp":"2026-06-28T17:34:12.607Z"}
+{"level":"info","message":"MongoDB connected successfully","service":"identity-service","timestamp":"2026-06-28T17:34:43.984Z"}
+{"level":"info","message":"🚀 Hybrid Server fully live on port 8001!","service":"identity-service","timestamp":"2026-06-28T17:34:43.988Z"}
+{"level":"info","message":"👉 REST APIs: http://localhost:8001","service":"identity-service","timestamp":"2026-06-28T17:34:43.989Z"}
+{"level":"info","message":"redis client connected successfully","service":"identity-service","timestamp":"2026-06-28T17:34:43.989Z"}
+{"level":"info","message":"MongoDB connected successfully","service":"identity-service","timestamp":"2026-06-28T17:34:46.101Z"}
+{"level":"info","message":"🚀 Hybrid Server fully live on port 8001!","service":"identity-service","timestamp":"2026-06-28T17:34:46.105Z"}
+{"level":"info","message":"👉 REST APIs: http://localhost:8001","service":"identity-service","timestamp":"2026-06-28T17:34:46.106Z"}
+{"level":"info","message":"MongoDB connected successfully","service":"identity-service","timestamp":"2026-06-28T17:37:24.664Z"}
+{"level":"info","message":"🚀 Hybrid Server fully live on port 8001!","service":"identity-service","timestamp":"2026-06-28T17:37:24.672Z"}
+{"level":"info","message":"👉 REST APIs: http://localhost:8001","service":"identity-service","timestamp":"2026-06-28T17:37:24.672Z"}
+{"level":"info","message":"MongoDB connected successfully","service":"identity-service","timestamp":"2026-06-28T17:37:43.113Z"}
+{"level":"info","message":"🚀 Hybrid Server fully live on port 8001!","service":"identity-service","timestamp":"2026-06-28T17:37:43.118Z"}
+{"level":"info","message":"👉 REST APIs: http://localhost:8001","service":"identity-service","timestamp":"2026-06-28T17:37:43.118Z"}
+{"level":"info","message":"MongoDB connected successfully","service":"identity-service","timestamp":"2026-06-28T17:37:47.204Z"}
+{"level":"info","message":"🚀 Hybrid Server fully live on port 8001!","service":"identity-service","timestamp":"2026-06-28T17:37:47.210Z"}
+{"level":"info","message":"👉 REST APIs: http://localhost:8001","service":"identity-service","timestamp":"2026-06-28T17:37:47.211Z"}
+{"level":"info","message":"MongoDB connected successfully","service":"identity-service","timestamp":"2026-06-28T17:37:48.362Z"}
+{"level":"info","message":"🚀 Hybrid Server fully live on port 8001!","service":"identity-service","timestamp":"2026-06-28T17:37:48.369Z"}
+{"level":"info","message":"👉 REST APIs: http://localhost:8001","service":"identity-service","timestamp":"2026-06-28T17:37:48.370Z"}
+{"level":"info","message":"MongoDB connected successfully","service":"identity-service","timestamp":"2026-06-28T17:37:52.110Z"}
+{"level":"info","message":"🚀 Hybrid Server fully live on port 8001!","service":"identity-service","timestamp":"2026-06-28T17:37:52.117Z"}
+{"level":"info","message":"👉 REST APIs: http://localhost:8001","service":"identity-service","timestamp":"2026-06-28T17:37:52.117Z"}
+{"level":"info","message":"MongoDB connected successfully","service":"identity-service","timestamp":"2026-06-28T17:38:58.960Z"}
+{"level":"info","message":"🚀 Hybrid Server fully live on port 8001!","service":"identity-service","timestamp":"2026-06-28T17:38:58.965Z"}
+{"level":"info","message":"👉 REST APIs: http://localhost:8001","service":"identity-service","timestamp":"2026-06-28T17:38:58.966Z"}
+{"level":"info","message":"MongoDB connected successfully","service":"identity-service","timestamp":"2026-06-28T17:39:03.503Z"}
+{"level":"info","message":"🚀 Hybrid Server fully live on port 8001!","service":"identity-service","timestamp":"2026-06-28T17:39:03.508Z"}
+{"level":"info","message":"👉 REST APIs: http://localhost:8001","service":"identity-service","timestamp":"2026-06-28T17:39:03.509Z"}
+{"level":"info","message":"MongoDB connected successfully","service":"identity-service","timestamp":"2026-06-28T17:42:28.947Z"}
+{"level":"info","message":"🚀 Hybrid Server fully live on port 8001!","service":"identity-service","timestamp":"2026-06-28T17:42:28.953Z"}
+{"level":"info","message":"👉 REST APIs: http://localhost:8001","service":"identity-service","timestamp":"2026-06-28T17:42:28.954Z"}
+{"level":"info","message":"MongoDB connected successfully","service":"identity-service","timestamp":"2026-06-28T17:42:40.744Z"}
+{"level":"info","message":"🚀 Hybrid Server fully live on port 8001!","service":"identity-service","timestamp":"2026-06-28T17:42:40.749Z"}
+{"level":"info","message":"👉 REST APIs: http://localhost:8001","service":"identity-service","timestamp":"2026-06-28T17:42:40.750Z"}
+{"level":"info","message":"MongoDB connected successfully","service":"identity-service","timestamp":"2026-06-28T17:43:01.571Z"}
+{"level":"info","message":"🚀 Hybrid Server fully live on port 8001!","service":"identity-service","timestamp":"2026-06-28T17:43:01.577Z"}
+{"level":"info","message":"👉 REST APIs: http://localhost:8001","service":"identity-service","timestamp":"2026-06-28T17:43:01.577Z"}
+{"level":"info","message":"MongoDB connected successfully","service":"identity-service","timestamp":"2026-06-28T17:43:04.040Z"}
+{"level":"info","message":"🚀 Hybrid Server fully live on port 8001!","service":"identity-service","timestamp":"2026-06-28T17:43:04.047Z"}
+{"level":"info","message":"👉 REST APIs: http://localhost:8001","service":"identity-service","timestamp":"2026-06-28T17:43:04.047Z"}
+{"level":"info","message":"MongoDB connected successfully","service":"identity-service","timestamp":"2026-06-28T17:43:05.687Z"}
+{"level":"info","message":"🚀 Hybrid Server fully live on port 8001!","service":"identity-service","timestamp":"2026-06-28T17:43:05.692Z"}
+{"level":"info","message":"👉 REST APIs: http://localhost:8001","service":"identity-service","timestamp":"2026-06-28T17:43:05.692Z"}
+{"level":"info","message":"MongoDB connected successfully","service":"identity-service","timestamp":"2026-06-28T17:43:08.073Z"}
+{"level":"info","message":"🚀 Hybrid Server fully live on port 8001!","service":"identity-service","timestamp":"2026-06-28T17:43:08.097Z"}
+{"level":"info","message":"👉 REST APIs: http://localhost:8001","service":"identity-service","timestamp":"2026-06-28T17:43:08.097Z"}
+{"level":"info","message":"MongoDB connected successfully","service":"identity-service","timestamp":"2026-06-28T17:43:13.682Z"}
+{"level":"info","message":"🚀 Hybrid Server fully live on port 8001!","service":"identity-service","timestamp":"2026-06-28T17:43:13.687Z"}
+{"level":"info","message":"👉 REST APIs: http://localhost:8001","service":"identity-service","timestamp":"2026-06-28T17:43:13.688Z"}
+{"level":"info","message":"MongoDB connected successfully","service":"identity-service","timestamp":"2026-06-28T17:43:15.208Z"}
+{"level":"info","message":"🚀 Hybrid Server fully live on port 8001!","service":"identity-service","timestamp":"2026-06-28T17:43:15.214Z"}
+{"level":"info","message":"👉 REST APIs: http://localhost:8001","service":"identity-service","timestamp":"2026-06-28T17:43:15.215Z"}
+{"level":"info","message":"MongoDB connected successfully","service":"identity-service","timestamp":"2026-06-28T17:43:25.770Z"}
+{"level":"info","message":"🚀 Hybrid Server fully live on port 8001!","service":"identity-service","timestamp":"2026-06-28T17:43:25.775Z"}
+{"level":"info","message":"👉 REST APIs: http://localhost:8001","service":"identity-service","timestamp":"2026-06-28T17:43:25.776Z"}
+{"level":"info","message":"MongoDB connected successfully","service":"identity-service","timestamp":"2026-06-28T17:43:27.364Z"}
+{"level":"info","message":"🚀 Hybrid Server fully live on port 8001!","service":"identity-service","timestamp":"2026-06-28T17:43:27.369Z"}
+{"level":"info","message":"👉 REST APIs: http://localhost:8001","service":"identity-service","timestamp":"2026-06-28T17:43:27.369Z"}
+{"level":"info","message":"MongoDB connected successfully","service":"identity-service","timestamp":"2026-06-28T17:43:30.111Z"}
+{"level":"info","message":"🚀 Hybrid Server fully live on port 8001!","service":"identity-service","timestamp":"2026-06-28T17:43:30.116Z"}
+{"level":"info","message":"👉 REST APIs: http://localhost:8001","service":"identity-service","timestamp":"2026-06-28T17:43:30.117Z"}
+{"level":"info","message":"MongoDB connected successfully","service":"identity-service","timestamp":"2026-06-28T17:43:35.409Z"}
+{"level":"info","message":"🚀 Hybrid Server fully live on port 8001!","service":"identity-service","timestamp":"2026-06-28T17:43:35.415Z"}
+{"level":"info","message":"👉 REST APIs: http://localhost:8001","service":"identity-service","timestamp":"2026-06-28T17:43:35.416Z"}
+{"level":"info","message":"MongoDB connected successfully","service":"identity-service","timestamp":"2026-06-28T17:43:49.824Z"}
+{"level":"info","message":"🚀 Hybrid Server fully live on port 8001!","service":"identity-service","timestamp":"2026-06-28T17:43:49.830Z"}
+{"level":"info","message":"👉 REST APIs: http://localhost:8001","service":"identity-service","timestamp":"2026-06-28T17:43:49.831Z"}
+{"level":"info","message":"MongoDB connected successfully","service":"identity-service","timestamp":"2026-06-28T17:43:50.908Z"}
+{"level":"info","message":"🚀 Hybrid Server fully live on port 8001!","service":"identity-service","timestamp":"2026-06-28T17:43:50.914Z"}
+{"level":"info","message":"👉 REST APIs: http://localhost:8001","service":"identity-service","timestamp":"2026-06-28T17:43:50.914Z"}
+{"level":"info","message":"MongoDB connected successfully","service":"identity-service","timestamp":"2026-06-28T17:43:54.916Z"}
+{"level":"info","message":"🚀 Hybrid Server fully live on port 8001!","service":"identity-service","timestamp":"2026-06-28T17:43:54.922Z"}
+{"level":"info","message":"👉 REST APIs: http://localhost:8001","service":"identity-service","timestamp":"2026-06-28T17:43:54.923Z"}
+{"level":"info","message":"MongoDB connected successfully","service":"identity-service","timestamp":"2026-06-28T17:43:58.474Z"}
+{"level":"info","message":"🚀 Hybrid Server fully live on port 8001!","service":"identity-service","timestamp":"2026-06-28T17:43:58.479Z"}
+{"level":"info","message":"👉 REST APIs: http://localhost:8001","service":"identity-service","timestamp":"2026-06-28T17:43:58.480Z"}
+{"level":"info","message":"MongoDB connected successfully","service":"identity-service","timestamp":"2026-06-28T17:44:02.185Z"}
+{"level":"info","message":"🚀 Hybrid Server fully live on port 8001!","service":"identity-service","timestamp":"2026-06-28T17:44:02.190Z"}
+{"level":"info","message":"👉 REST APIs: http://localhost:8001","service":"identity-service","timestamp":"2026-06-28T17:44:02.191Z"}
+{"level":"info","message":"MongoDB connected successfully","service":"identity-service","timestamp":"2026-06-28T17:44:06.895Z"}
+{"level":"info","message":"🚀 Hybrid Server fully live on port 8001!","service":"identity-service","timestamp":"2026-06-28T17:44:06.903Z"}
+{"level":"info","message":"👉 REST APIs: http://localhost:8001","service":"identity-service","timestamp":"2026-06-28T17:44:06.904Z"}
+{"level":"info","message":"MongoDB connected successfully","service":"identity-service","timestamp":"2026-06-28T17:44:08.444Z"}
+{"level":"info","message":"🚀 Hybrid Server fully live on port 8001!","service":"identity-service","timestamp":"2026-06-28T17:44:08.450Z"}
+{"level":"info","message":"👉 REST APIs: http://localhost:8001","service":"identity-service","timestamp":"2026-06-28T17:44:08.451Z"}
+{"level":"info","message":"MongoDB connected successfully","service":"identity-service","timestamp":"2026-06-28T17:44:12.201Z"}
+{"level":"info","message":"🚀 Hybrid Server fully live on port 8001!","service":"identity-service","timestamp":"2026-06-28T17:44:12.211Z"}
+{"level":"info","message":"👉 REST APIs: http://localhost:8001","service":"identity-service","timestamp":"2026-06-28T17:44:12.212Z"}
+{"level":"info","message":"MongoDB connected successfully","service":"identity-service","timestamp":"2026-06-28T17:44:13.787Z"}
+{"level":"info","message":"🚀 Hybrid Server fully live on port 8001!","service":"identity-service","timestamp":"2026-06-28T17:44:13.793Z"}
+{"level":"info","message":"👉 REST APIs: http://localhost:8001","service":"identity-service","timestamp":"2026-06-28T17:44:13.793Z"}
+{"level":"info","message":"MongoDB connected successfully","service":"identity-service","timestamp":"2026-06-28T17:44:24.111Z"}
+{"level":"info","message":"🚀 Hybrid Server fully live on port 8001!","service":"identity-service","timestamp":"2026-06-28T17:44:24.116Z"}
+{"level":"info","message":"👉 REST APIs: http://localhost:8001","service":"identity-service","timestamp":"2026-06-28T17:44:24.117Z"}
+{"level":"info","message":"MongoDB connected successfully","service":"identity-service","timestamp":"2026-06-28T17:44:26.115Z"}
+{"level":"info","message":"🚀 Hybrid Server fully live on port 8001!","service":"identity-service","timestamp":"2026-06-28T17:44:26.123Z"}
+{"level":"info","message":"👉 REST APIs: http://localhost:8001","service":"identity-service","timestamp":"2026-06-28T17:44:26.123Z"}
+{"level":"info","message":"MongoDB connected successfully","service":"identity-service","timestamp":"2026-06-28T17:44:28.899Z"}
+{"level":"info","message":"🚀 Hybrid Server fully live on port 8001!","service":"identity-service","timestamp":"2026-06-28T17:44:28.904Z"}
+{"level":"info","message":"👉 REST APIs: http://localhost:8001","service":"identity-service","timestamp":"2026-06-28T17:44:28.904Z"}
+{"level":"info","message":"MongoDB connected successfully","service":"identity-service","timestamp":"2026-06-28T17:44:30.875Z"}
+{"level":"info","message":"🚀 Hybrid Server fully live on port 8001!","service":"identity-service","timestamp":"2026-06-28T17:44:30.881Z"}
+{"level":"info","message":"👉 REST APIs: http://localhost:8001","service":"identity-service","timestamp":"2026-06-28T17:44:30.881Z"}
+{"level":"info","message":"MongoDB connected successfully","service":"identity-service","timestamp":"2026-06-28T17:44:36.893Z"}
+{"level":"info","message":"🚀 Hybrid Server fully live on port 8001!","service":"identity-service","timestamp":"2026-06-28T17:44:36.899Z"}
+{"level":"info","message":"👉 REST APIs: http://localhost:8001","service":"identity-service","timestamp":"2026-06-28T17:44:36.900Z"}
+{"level":"info","message":"MongoDB connected successfully","service":"identity-service","timestamp":"2026-06-28T17:44:38.516Z"}
+{"level":"info","message":"🚀 Hybrid Server fully live on port 8001!","service":"identity-service","timestamp":"2026-06-28T17:44:38.522Z"}
+{"level":"info","message":"👉 REST APIs: http://localhost:8001","service":"identity-service","timestamp":"2026-06-28T17:44:38.523Z"}
+{"level":"info","message":"MongoDB connected successfully","service":"identity-service","timestamp":"2026-06-28T17:44:40.614Z"}
+{"level":"info","message":"🚀 Hybrid Server fully live on port 8001!","service":"identity-service","timestamp":"2026-06-28T17:44:40.619Z"}
+{"level":"info","message":"👉 REST APIs: http://localhost:8001","service":"identity-service","timestamp":"2026-06-28T17:44:40.619Z"}
+{"level":"info","message":"MongoDB connected successfully","service":"identity-service","timestamp":"2026-06-28T17:46:02.849Z"}
+{"level":"info","message":"🚀 Hybrid Server fully live on port 8001!","service":"identity-service","timestamp":"2026-06-28T17:46:02.854Z"}
+{"level":"info","message":"👉 REST APIs: http://localhost:8001","service":"identity-service","timestamp":"2026-06-28T17:46:02.854Z"}
+{"level":"info","message":"MongoDB connected successfully","service":"identity-service","timestamp":"2026-06-28T17:46:24.395Z"}
+{"level":"info","message":"🚀 Hybrid Server fully live on port 8001!","service":"identity-service","timestamp":"2026-06-28T17:46:24.400Z"}
+{"level":"info","message":"👉 REST APIs: http://localhost:8001","service":"identity-service","timestamp":"2026-06-28T17:46:24.401Z"}
+{"level":"info","message":"MongoDB connected successfully","service":"identity-service","timestamp":"2026-06-28T17:46:36.342Z"}
+{"level":"info","message":"🚀 Hybrid Server fully live on port 8001!","service":"identity-service","timestamp":"2026-06-28T17:46:36.347Z"}
+{"level":"info","message":"👉 REST APIs: http://localhost:8001","service":"identity-service","timestamp":"2026-06-28T17:46:36.348Z"}
+{"level":"info","message":"MongoDB connected successfully","service":"identity-service","timestamp":"2026-06-28T17:46:37.871Z"}
+{"level":"info","message":"🚀 Hybrid Server fully live on port 8001!","service":"identity-service","timestamp":"2026-06-28T17:46:37.877Z"}
+{"level":"info","message":"👉 REST APIs: http://localhost:8001","service":"identity-service","timestamp":"2026-06-28T17:46:37.878Z"}
+{"level":"info","message":"MongoDB connected successfully","service":"identity-service","timestamp":"2026-06-28T17:46:41.777Z"}
+{"level":"info","message":"🚀 Hybrid Server fully live on port 8001!","service":"identity-service","timestamp":"2026-06-28T17:46:41.783Z"}
+{"level":"info","message":"👉 REST APIs: http://localhost:8001","service":"identity-service","timestamp":"2026-06-28T17:46:41.784Z"}
+{"level":"info","message":"MongoDB connected successfully","service":"identity-service","timestamp":"2026-06-28T17:46:43.277Z"}
+{"level":"info","message":"🚀 Hybrid Server fully live on port 8001!","service":"identity-service","timestamp":"2026-06-28T17:46:43.283Z"}
+{"level":"info","message":"👉 REST APIs: http://localhost:8001","service":"identity-service","timestamp":"2026-06-28T17:46:43.284Z"}
+{"level":"info","message":"MongoDB connected successfully","service":"identity-service","timestamp":"2026-06-28T17:46:46.142Z"}
+{"level":"info","message":"🚀 Hybrid Server fully live on port 8001!","service":"identity-service","timestamp":"2026-06-28T17:46:46.149Z"}
+{"level":"info","message":"👉 REST APIs: http://localhost:8001","service":"identity-service","timestamp":"2026-06-28T17:46:46.150Z"}
+{"level":"info","message":"MongoDB connected successfully","service":"identity-service","timestamp":"2026-06-28T17:46:55.214Z"}
+{"level":"info","message":"🚀 Hybrid Server fully live on port 8001!","service":"identity-service","timestamp":"2026-06-28T17:46:55.219Z"}
+{"level":"info","message":"👉 REST APIs: http://localhost:8001","service":"identity-service","timestamp":"2026-06-28T17:46:55.220Z"}
+{"level":"info","message":"MongoDB connected successfully","service":"identity-service","timestamp":"2026-06-28T17:46:56.507Z"}
+{"level":"info","message":"🚀 Hybrid Server fully live on port 8001!","service":"identity-service","timestamp":"2026-06-28T17:46:56.512Z"}
+{"level":"info","message":"👉 REST APIs: http://localhost:8001","service":"identity-service","timestamp":"2026-06-28T17:46:56.512Z"}
+{"level":"info","message":"MongoDB connected successfully","service":"identity-service","timestamp":"2026-06-28T17:46:58.967Z"}
+{"level":"info","message":"🚀 Hybrid Server fully live on port 8001!","service":"identity-service","timestamp":"2026-06-28T17:46:58.975Z"}
+{"level":"info","message":"👉 REST APIs: http://localhost:8001","service":"identity-service","timestamp":"2026-06-28T17:46:58.976Z"}
+{"level":"info","message":"MongoDB connected successfully","service":"identity-service","timestamp":"2026-06-28T17:48:41.853Z"}
+{"level":"info","message":"🚀 Hybrid Server fully live on port 8001!","service":"identity-service","timestamp":"2026-06-28T17:48:41.858Z"}
+{"level":"info","message":"👉 REST APIs: http://localhost:8001","service":"identity-service","timestamp":"2026-06-28T17:48:41.858Z"}
+{"level":"info","message":"MongoDB connected successfully","service":"identity-service","timestamp":"2026-06-28T17:48:46.529Z"}
+{"level":"info","message":"🚀 Hybrid Server fully live on port 8001!","service":"identity-service","timestamp":"2026-06-28T17:48:46.535Z"}
+{"level":"info","message":"👉 REST APIs: http://localhost:8001","service":"identity-service","timestamp":"2026-06-28T17:48:46.536Z"}
+{"level":"info","message":"MongoDB connected successfully","service":"identity-service","timestamp":"2026-06-28T17:48:55.411Z"}
+{"level":"info","message":"🚀 Hybrid Server fully live on port 8001!","service":"identity-service","timestamp":"2026-06-28T17:48:55.415Z"}
+{"level":"info","message":"👉 REST APIs: http://localhost:8001","service":"identity-service","timestamp":"2026-06-28T17:48:55.416Z"}
+{"level":"info","message":"MongoDB connected successfully","service":"identity-service","timestamp":"2026-06-28T17:49:25.600Z"}
+{"level":"info","message":"🚀 Hybrid Server fully live on port 8001!","service":"identity-service","timestamp":"2026-06-28T17:49:25.606Z"}
+{"level":"info","message":"👉 REST APIs: http://localhost:8001","service":"identity-service","timestamp":"2026-06-28T17:49:25.606Z"}
+{"level":"info","message":"MongoDB connected successfully","service":"identity-service","timestamp":"2026-06-28T17:49:41.514Z"}
+{"level":"info","message":"🚀 Hybrid Server fully live on port 8001!","service":"identity-service","timestamp":"2026-06-28T17:49:41.519Z"}
+{"level":"info","message":"👉 REST APIs: http://localhost:8001","service":"identity-service","timestamp":"2026-06-28T17:49:41.519Z"}
+{"level":"info","message":"MongoDB connected successfully","service":"identity-service","timestamp":"2026-06-28T17:49:43.990Z"}
+{"level":"info","message":"🚀 Hybrid Server fully live on port 8001!","service":"identity-service","timestamp":"2026-06-28T17:49:43.994Z"}
+{"level":"info","message":"👉 REST APIs: http://localhost:8001","service":"identity-service","timestamp":"2026-06-28T17:49:43.995Z"}
+{"level":"info","message":"MongoDB connected successfully","service":"identity-service","timestamp":"2026-06-28T17:50:38.168Z"}
+{"level":"info","message":"🚀 Hybrid Server fully live on port 8001!","service":"identity-service","timestamp":"2026-06-28T17:50:38.173Z"}
+{"level":"info","message":"👉 REST APIs: http://localhost:8001","service":"identity-service","timestamp":"2026-06-28T17:50:38.174Z"}
+{"level":"info","message":"MongoDB connected successfully","service":"identity-service","timestamp":"2026-06-28T17:50:44.989Z"}
+{"level":"info","message":"🚀 Hybrid Server fully live on port 8001!","service":"identity-service","timestamp":"2026-06-28T17:50:44.994Z"}
+{"level":"info","message":"👉 REST APIs: http://localhost:8001","service":"identity-service","timestamp":"2026-06-28T17:50:44.994Z"}
+{"level":"info","message":"MongoDB connected successfully","service":"identity-service","timestamp":"2026-06-28T17:50:48.586Z"}
+{"level":"info","message":"🚀 Hybrid Server fully live on port 8001!","service":"identity-service","timestamp":"2026-06-28T17:50:48.590Z"}
+{"level":"info","message":"👉 REST APIs: http://localhost:8001","service":"identity-service","timestamp":"2026-06-28T17:50:48.591Z"}
+{"level":"info","message":"MongoDB connected successfully","service":"identity-service","timestamp":"2026-06-28T17:51:18.234Z"}
+{"level":"info","message":"🚀 Hybrid Server fully live on port 8001!","service":"identity-service","timestamp":"2026-06-28T17:51:18.240Z"}
+{"level":"info","message":"👉 REST APIs: http://localhost:8001","service":"identity-service","timestamp":"2026-06-28T17:51:18.240Z"}
+{"level":"info","message":"MongoDB connected successfully","service":"identity-service","timestamp":"2026-06-28T17:51:19.873Z"}
+{"level":"info","message":"🚀 Hybrid Server fully live on port 8001!","service":"identity-service","timestamp":"2026-06-28T17:51:19.878Z"}
+{"level":"info","message":"👉 REST APIs: http://localhost:8001","service":"identity-service","timestamp":"2026-06-28T17:51:19.878Z"}
+{"level":"info","message":"MongoDB connected successfully","service":"identity-service","timestamp":"2026-06-28T17:51:23.133Z"}
+{"level":"info","message":"🚀 Hybrid Server fully live on port 8001!","service":"identity-service","timestamp":"2026-06-28T17:51:23.138Z"}
+{"level":"info","message":"👉 REST APIs: http://localhost:8001","service":"identity-service","timestamp":"2026-06-28T17:51:23.139Z"}
+{"level":"info","message":"MongoDB connected successfully","service":"identity-service","timestamp":"2026-06-28T17:51:25.665Z"}
+{"level":"info","message":"🚀 Hybrid Server fully live on port 8001!","service":"identity-service","timestamp":"2026-06-28T17:51:25.670Z"}
+{"level":"info","message":"👉 REST APIs: http://localhost:8001","service":"identity-service","timestamp":"2026-06-28T17:51:25.670Z"}
+{"level":"info","message":"MongoDB connected successfully","service":"identity-service","timestamp":"2026-06-28T17:51:27.132Z"}
+{"level":"info","message":"🚀 Hybrid Server fully live on port 8001!","service":"identity-service","timestamp":"2026-06-28T17:51:27.137Z"}
+{"level":"info","message":"👉 REST APIs: http://localhost:8001","service":"identity-service","timestamp":"2026-06-28T17:51:27.137Z"}
+{"level":"info","message":"MongoDB connected successfully","service":"identity-service","timestamp":"2026-06-28T17:51:31.739Z"}
+{"level":"info","message":"🚀 Hybrid Server fully live on port 8001!","service":"identity-service","timestamp":"2026-06-28T17:51:31.745Z"}
+{"level":"info","message":"👉 REST APIs: http://localhost:8001","service":"identity-service","timestamp":"2026-06-28T17:51:31.745Z"}
+{"level":"info","message":"MongoDB connected successfully","service":"identity-service","timestamp":"2026-06-28T17:52:44.406Z"}
+{"level":"info","message":"🚀 Hybrid Server fully live on port 8001!","service":"identity-service","timestamp":"2026-06-28T17:52:44.411Z"}
+{"level":"info","message":"👉 REST APIs: http://localhost:8001","service":"identity-service","timestamp":"2026-06-28T17:52:44.412Z"}
+{"level":"info","message":"MongoDB connected successfully","service":"identity-service","timestamp":"2026-06-28T17:52:54.058Z"}
+{"level":"info","message":"🚀 Hybrid Server fully live on port 8001!","service":"identity-service","timestamp":"2026-06-28T17:52:54.063Z"}
+{"level":"info","message":"👉 REST APIs: http://localhost:8001","service":"identity-service","timestamp":"2026-06-28T17:52:54.064Z"}
+{"level":"info","message":"MongoDB connected successfully","service":"identity-service","timestamp":"2026-06-28T17:53:13.119Z"}
+{"level":"info","message":"🚀 Hybrid Server fully live on port 8001!","service":"identity-service","timestamp":"2026-06-28T17:53:13.124Z"}
+{"level":"info","message":"👉 REST APIs: http://localhost:8001","service":"identity-service","timestamp":"2026-06-28T17:53:13.124Z"}
+{"level":"info","message":"MongoDB connected successfully","service":"identity-service","timestamp":"2026-06-28T17:53:14.209Z"}
+{"level":"info","message":"🚀 Hybrid Server fully live on port 8001!","service":"identity-service","timestamp":"2026-06-28T17:53:14.214Z"}
+{"level":"info","message":"👉 REST APIs: http://localhost:8001","service":"identity-service","timestamp":"2026-06-28T17:53:14.214Z"}
+{"level":"info","message":"MongoDB connected successfully","service":"identity-service","timestamp":"2026-06-28T17:53:20.399Z"}
+{"level":"info","message":"🚀 Hybrid Server fully live on port 8001!","service":"identity-service","timestamp":"2026-06-28T17:53:20.404Z"}
+{"level":"info","message":"👉 REST APIs: http://localhost:8001","service":"identity-service","timestamp":"2026-06-28T17:53:20.405Z"}
+{"level":"info","message":"MongoDB connected successfully","service":"identity-service","timestamp":"2026-06-28T17:54:36.864Z"}
+{"level":"info","message":"🚀 Hybrid Server fully live on port 8001!","service":"identity-service","timestamp":"2026-06-28T17:54:36.869Z"}
+{"level":"info","message":"👉 REST APIs: http://localhost:8001","service":"identity-service","timestamp":"2026-06-28T17:54:36.869Z"}
+{"level":"info","message":"MongoDB connected successfully","service":"identity-service","timestamp":"2026-06-28T17:54:39.084Z"}
+{"level":"info","message":"🚀 Hybrid Server fully live on port 8001!","service":"identity-service","timestamp":"2026-06-28T17:54:39.089Z"}
+{"level":"info","message":"👉 REST APIs: http://localhost:8001","service":"identity-service","timestamp":"2026-06-28T17:54:39.089Z"}
+{"level":"info","message":"MongoDB connected successfully","service":"identity-service","timestamp":"2026-06-28T17:54:41.803Z"}
+{"level":"info","message":"🚀 Hybrid Server fully live on port 8001!","service":"identity-service","timestamp":"2026-06-28T17:54:41.808Z"}
+{"level":"info","message":"👉 REST APIs: http://localhost:8001","service":"identity-service","timestamp":"2026-06-28T17:54:41.808Z"}
+{"level":"info","message":"MongoDB connected successfully","service":"identity-service","timestamp":"2026-06-28T17:55:57.566Z"}
+{"level":"info","message":"🚀 Hybrid Server fully live on port 8001!","service":"identity-service","timestamp":"2026-06-28T17:55:57.572Z"}
+{"level":"info","message":"👉 REST APIs: http://localhost:8001","service":"identity-service","timestamp":"2026-06-28T17:55:57.573Z"}
+{"level":"info","message":"MongoDB connected successfully","service":"identity-service","timestamp":"2026-06-28T17:56:00.246Z"}
+{"level":"info","message":"🚀 Hybrid Server fully live on port 8001!","service":"identity-service","timestamp":"2026-06-28T17:56:00.253Z"}
+{"level":"info","message":"👉 REST APIs: http://localhost:8001","service":"identity-service","timestamp":"2026-06-28T17:56:00.254Z"}
+{"level":"info","message":"MongoDB connected successfully","service":"identity-service","timestamp":"2026-06-28T17:59:48.865Z"}
+{"level":"info","message":"🚀 Hybrid Server fully live on port 8001!","service":"identity-service","timestamp":"2026-06-28T17:59:48.870Z"}
+{"level":"info","message":"👉 REST APIs: http://localhost:8001","service":"identity-service","timestamp":"2026-06-28T17:59:48.871Z"}
+{"level":"info","message":"MongoDB connected successfully","service":"identity-service","timestamp":"2026-06-28T17:59:58.792Z"}
+{"level":"info","message":"🚀 Hybrid Server fully live on port 8001!","service":"identity-service","timestamp":"2026-06-28T17:59:58.797Z"}
+{"level":"info","message":"👉 REST APIs: http://localhost:8001","service":"identity-service","timestamp":"2026-06-28T17:59:58.797Z"}
+{"level":"info","message":"MongoDB connected successfully","service":"identity-service","timestamp":"2026-06-28T18:00:02.061Z"}
+{"level":"info","message":"🚀 Hybrid Server fully live on port 8001!","service":"identity-service","timestamp":"2026-06-28T18:00:02.066Z"}
+{"level":"info","message":"👉 REST APIs: http://localhost:8001","service":"identity-service","timestamp":"2026-06-28T18:00:02.066Z"}
+{"level":"info","message":"MongoDB connected successfully","service":"identity-service","timestamp":"2026-06-28T18:00:30.571Z"}
+{"level":"info","message":"🚀 Hybrid Server fully live on port 8001!","service":"identity-service","timestamp":"2026-06-28T18:00:30.576Z"}
+{"level":"info","message":"👉 REST APIs: http://localhost:8001","service":"identity-service","timestamp":"2026-06-28T18:00:30.577Z"}
+{"level":"info","message":"MongoDB connected successfully","service":"identity-service","timestamp":"2026-06-28T18:00:35.783Z"}
+{"level":"info","message":"🚀 Hybrid Server fully live on port 8001!","service":"identity-service","timestamp":"2026-06-28T18:00:35.789Z"}
+{"level":"info","message":"👉 REST APIs: http://localhost:8001","service":"identity-service","timestamp":"2026-06-28T18:00:35.789Z"}
+{"level":"info","message":"MongoDB connected successfully","service":"identity-service","timestamp":"2026-06-28T18:01:50.108Z"}
+{"level":"info","message":"🚀 Hybrid Server fully live on port 8001!","service":"identity-service","timestamp":"2026-06-28T18:01:50.113Z"}
+{"level":"info","message":"👉 REST APIs: http://localhost:8001","service":"identity-service","timestamp":"2026-06-28T18:01:50.113Z"}
+{"level":"info","message":"MongoDB connected successfully","service":"identity-service","timestamp":"2026-06-28T18:01:55.918Z"}
+{"level":"info","message":"🚀 Hybrid Server fully live on port 8001!","service":"identity-service","timestamp":"2026-06-28T18:01:55.924Z"}
+{"level":"info","message":"👉 REST APIs: http://localhost:8001","service":"identity-service","timestamp":"2026-06-28T18:01:55.924Z"}
