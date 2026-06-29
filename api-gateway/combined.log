@@ -1,0 +1,2 @@
+{"level":"info","message":"Proxying request to http://localhost:8001/api/auth/v1/register","service":"API-Gateway","timestamp":"2026-06-29T17:05:06.505Z"}
+{"level":"info","message":"Proxying request to http://localhost:8001 with url = /api/auth/v1/register","service":"API-Gateway","timestamp":"2026-06-29T17:11:42.095Z"}

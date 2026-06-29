@@ -13,9 +13,19 @@ exports.register = async(req,res) => {
         const { error } = validateRegistration(req.body);
 
         if(error){
-            logger.warn('validation error',error.details[0].message)
+            logger.warn({
+                message: "Validation Error",
+                error: error.details[0].message
+            });
 
-            return sendError(res,400,error.details[0].message)
+            console.log(error.details[0].message, "validation error")
+
+            return sendError(
+                res,
+                400,
+                "Validation Error",
+                error
+            );
         }
 
 
@@ -29,9 +39,18 @@ exports.register = async(req,res) => {
         })
 
         if(user){
-            logger.warn('User Already exists')
+            logger.warn({
+                message: "User Already Exists",
+                email,
+                username
+            });
 
-            return sendError(res,400,'User Already exists')
+            return sendError(res,400,'User Already exists',[
+                {
+                    field: "email/username",
+                    message: "Email or Username already exists"
+                }
+            ])
         }
 
         const newUser = await User.create({
@@ -40,14 +59,19 @@ exports.register = async(req,res) => {
             password        
         })
 
-        logger.warn('User Saved Successfull',newUser._id)
+        logger.info({
+            message: "User Registered Successfully",
+            userId: newUser._id.toString(),
+            username: newUser.username,
+            email: newUser.email
+        });
 
-        const { accessToken, refreshToken } = generateTokens(user);
+        const { accessToken, refreshToken } = generateTokens(newUser);
 
 
         await RefreshToken.create({
             token: refreshToken,
-            user: user._id,
+            user: newUser._id,
             expiresAt: new Date(Date.now() + 7 * 24 * 60 * 60 * 1000)
         });
 
@@ -62,27 +86,48 @@ exports.register = async(req,res) => {
         );
 
     }catch(error){
-        logger.error('Registration error occured')
+        console.log("error occurred",error)
+
+        logger.error({
+            message: "Registration Failed",
+            error: error.message,
+            stack: error.stack
+        });
 
         if (error.code === 11000) {
             const field = Object.keys(error.keyValue)[0]; 
             const value = Object.values(error.keyValue)[0];
 
-            logger.error("Duplicate key error")
+            logger.error({
+                message: "Duplicate Key Error",
+                field: field,
+                value: value
+            });
 
             return sendError(
                 res,
-                400,
+                409,
                 "Duplicate Error",
-                [`${field} '${value}' is already registered.`]
+                [
+                    {
+                        field,
+                        message: `${value} is already registered`
+                    }
+                ]
             );
         }
 
         if (error.name === 'ValidationError') {
-            const messages = Object.values(error.errors).map(err => err.message);
+            const messages = Object.values(error.errors).map(err => ({
+                field: err.path,
+                message: err.message
+            }));
 
-            logger.error('Validation Error')
-            
+            logger.warn({
+                message: "Mongoose Validation Error",
+                errors: messages
+            });
+
             return sendError(
                 res,
                 400,

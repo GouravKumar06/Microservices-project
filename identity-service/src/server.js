@@ -4,13 +4,15 @@ const helmet = require('helmet');
 const configureCors = require('./config/cors.config');
 const connectDB = require('./database/db');
 const logger = require('./utils/logger');
-const createRedisLimiter = require('./middleware/rateLimiter');
+const { createRedisLimiter } = require('./middleware/rateLimiter');
 
 //routes
 const UserRoutes = require('./routes/user.routes');
+const urlVersioning = require('./middleware/apiVersioning');
 
 const app = express();
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT;
+const VERSION = process.env.VERSION;
 
 // Middleware
 app.use(helmet());
@@ -29,8 +31,9 @@ app.use( (req, res, next) => {
         });
 });
 
+app.use('/api/auth', urlVersioning(VERSION));
 
-app.use('/api/users', UserRoutes);
+app.use('/api/auth/1.0.0', UserRoutes);
 
 
 const startServer = async () => {

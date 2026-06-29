@@ -1,7 +1,7 @@
 
 const jwt = require('jsonwebtoken')
 
-exports.generateTokens = async(user) => {
+exports.generateTokens = (user) => {
 
     const payload = {
         userId: user._id,
