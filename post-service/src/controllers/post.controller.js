@@ -15,7 +15,7 @@ exports.createPost = async(req,res) => {
         logger.info("POST created Successfully")
 
         return res.status(201).json({
-            success:false,
+            success:true,
             message:"POST created Successfully"
         })
 

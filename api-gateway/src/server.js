@@ -82,6 +82,7 @@ app.use('/v2/api/post',isAuthenticated,proxy(process.env.POST_SERVICE_URL, {
     ...postProxyOptions,
     proxyReqOptDecorator: (proxyReqOpts, srcReq) => {
         proxyReqOpts.headers['content-type'] = 'application/json';
+
         proxyReqOpts.headers['x-user-id'] = srcReq.user.userId
         return proxyReqOpts;
     },

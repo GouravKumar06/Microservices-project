@@ -11,7 +11,7 @@ exports.generateTokens = (user) => {
     const accessToken = jwt.sign(
         payload,
         process.env.ACCESS_TOKEN_SECRET,
-        { expiresIn: "5m" }
+        { expiresIn: "50m" }
     );
 
     const refreshToken = jwt.sign(

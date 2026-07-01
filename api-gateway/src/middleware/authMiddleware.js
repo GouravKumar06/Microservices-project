@@ -10,8 +10,6 @@ const isAuthenticated = async(req,res,next) => {
 
         logger.warn("Unauthorized access from API gateway")
 
-        console.log("toekn : ",token)
-
         if(!token){
             return res.status(400).json({
                 success:false,
