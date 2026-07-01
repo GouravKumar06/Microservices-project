@@ -61,7 +61,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 
-app.use(createRateLimiter( 100, 10 * 60 * 1000));
+app.use(createRateLimiter( 10000, 10 * 60 * 1000));
 
 
 app.use('/v1/api/auth',proxy(process.env.IDENTITY_SERVICE_URL, { 

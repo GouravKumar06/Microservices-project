@@ -6,9 +6,9 @@ const redis = require('../database/redis');
 
 const createRedisLimiter = new RateLimiterRedis({
     storeClient: redis,
-    points: 10, // Number of requests
+    points: 1000, // Number of requests
     duration: 1, // Per second
-    blockDuration: 900, // Block for 900 seconds if consumed more than points,
+    blockDuration: 10, // Block for 900 seconds if consumed more than points,
     keyPrefix: 'middleware', // Prefix for Redis keys
 });
 

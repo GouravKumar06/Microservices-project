@@ -1034,3 +1034,12 @@
 {"email":"ramesh@gmail.com","level":"warn","message":"User Already Exists","service":"identity-service","timestamp":"2026-06-30T14:15:24.145Z","username":"Ramesh"}
 {"level":"info","message":"Registration End Point Start...","service":"identity-service","timestamp":"2026-06-30T14:16:08.336Z"}
 {"email":"mahesh@gmail.com","level":"info","message":"User Registered Successfully","service":"identity-service","timestamp":"2026-06-30T14:16:08.510Z","userId":"6a43cfa8fd504da02ad80dc2","username":"Mahesh"}
+{"level":"info","message":"MongoDB connected successfully","service":"identity-service","timestamp":"2026-07-01T12:47:25.518Z"}
+{"level":"info","message":"🚀 Hybrid Server fully live on port 8001!","service":"identity-service","timestamp":"2026-07-01T12:47:25.526Z"}
+{"level":"info","message":"👉 REST APIs: http://localhost:8001","service":"identity-service","timestamp":"2026-07-01T12:47:25.527Z"}
+{"level":"info","message":"MongoDB connected successfully","service":"identity-service","timestamp":"2026-07-01T13:47:48.981Z"}
+{"level":"info","message":"🚀 Hybrid Server fully live on port 8001!","service":"identity-service","timestamp":"2026-07-01T13:47:48.989Z"}
+{"level":"info","message":"👉 REST APIs: http://localhost:8001","service":"identity-service","timestamp":"2026-07-01T13:47:48.989Z"}
+{"level":"info","message":"MongoDB connected successfully","service":"identity-service","timestamp":"2026-07-01T13:47:53.005Z"}
+{"level":"info","message":"🚀 Hybrid Server fully live on port 8001!","service":"identity-service","timestamp":"2026-07-01T13:47:53.014Z"}
+{"level":"info","message":"👉 REST APIs: http://localhost:8001","service":"identity-service","timestamp":"2026-07-01T13:47:53.015Z"}

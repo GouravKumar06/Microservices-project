@@ -39,7 +39,7 @@ app.use((req, res, next) => {
 });
 
 app.use(urlVersioning(VERSION));
-app.use(createRateLimiter(100, 10 * 60 * 1000))
+app.use(createRateLimiter(1000, 10 * 60 * 1000))
 
 
 app.use('/v2/api/post', postRoutes);
