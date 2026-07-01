@@ -4,11 +4,11 @@ const helmet = require('helmet');
 const configureCors = require('./config/cors.config');
 const connectDB = require('./database/db');
 const logger = require('./utils/logger');
-const { createRedisLimiter } = require('./middleware/rateLimiter');
+const { createRedisLimiter, createRateLimiter } = require('./middleware/rateLimiter');
 
 //routes
-const UserRoutes = require('./routes/user.routes');
 const urlVersioning = require('./middleware/apiVersioning');
+const postRoutes = require('./routes/post.routes')
 
 const app = express();
 const PORT = process.env.PORT;
@@ -39,8 +39,10 @@ app.use((req, res, next) => {
 });
 
 app.use(urlVersioning(VERSION));
+app.use(createRateLimiter(100, 10 * 60 * 1000))
 
-app.use('/v1/api/auth', UserRoutes);
+
+app.use('/v2/api/post', postRoutes);
 
 
 const startServer = async () => {

@@ -1,5 +1,3 @@
-const { sendError } = require("../helpers/responseHelpers");
-
 
 const urlVersioning = (version) => (req,res,next) => {
 
@@ -10,11 +8,10 @@ const urlVersioning = (version) => (req,res,next) => {
     if(req.originalUrl.startsWith(`/${version}`)){
         return next()
     }else{
-        return sendError(
-            res,
-            400,
-            "Unsupported API Version"
-        );
+        return res.status(400).json({
+            success:false,
+            message:"Url Versioning is not allowed in post service"
+        })
     }
 }
 

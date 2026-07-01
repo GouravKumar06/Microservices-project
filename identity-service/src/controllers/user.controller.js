@@ -3,7 +3,7 @@ const User = require('../models/User');
 const RefreshToken = require('../models/refreshToken')
 const { sendSuccess,sendError } = require('../helpers/responseHelpers');
 const logger = require('../utils/logger');
-const { validateRegistration } = require('../utils/validation');
+const { validateRegistration, validateLogin } = require('../utils/validation');
 const { generateTokens } = require('../utils/generateToken');
 
 exports.register = async(req,res) => {
@@ -66,23 +66,23 @@ exports.register = async(req,res) => {
             email: newUser.email
         });
 
-        const { accessToken, refreshToken } = generateTokens(newUser);
+        // const { accessToken, refreshToken } = generateTokens(newUser);
 
 
-        await RefreshToken.create({
-            token: refreshToken,
-            user: newUser._id,
-            expiresAt: new Date(Date.now() + 7 * 24 * 60 * 60 * 1000)
-        });
+        // await RefreshToken.create({
+        //     token: refreshToken,
+        //     user: newUser._id,
+        //     expiresAt: new Date(Date.now() + 7 * 24 * 60 * 60 * 1000)
+        // });
 
         return sendSuccess(
             res,
             201,
             "User Registered Successfully",
-            {
-                accessToken,
-                refreshToken
-            }
+            // {
+            //     accessToken,
+            //     refreshToken
+            // }
         );
 
     }catch(error){
@@ -147,9 +147,34 @@ exports.register = async(req,res) => {
 
 exports.login = async(req,res) => {
     try{
-        const { input, password } = req.body
+        
+        console.log("login hit", req.body)
 
-        if(!input || !password ){
+        const { error } = validateLogin(req.body);
+
+        if(error){
+            logger.warn({
+                message: "Validation Error",
+                error: error.details[0].message
+            });
+
+            console.log(error.details[0].message, "validation error")
+
+            return sendError(
+                res,
+                400,
+                "Validation Error",
+                error
+            );
+        }
+
+
+        const { email, password } = req.body
+
+        if(!email || !password ){
+            
+            logger.warn("All Fields are required");
+
             return sendError(
                 res,
                 400,
@@ -157,14 +182,12 @@ exports.login = async(req,res) => {
             );
         }
 
-        const findData = await User.findOne({
-            $or:[
-                { email : input},
-                { username : input}
-            ]
-        })
+        const user = await User.findOne({ email })
 
-        if(!findData){
+        if(!user){
+            
+            logger.warn("Invalid Credentials");
+
             return sendError(
                 res,
                 401,
@@ -172,9 +195,12 @@ exports.login = async(req,res) => {
             );
         }
 
-        const matchPassword = await bcrypt.compare(password,findData.password)
+        const isValidPassword = await user.comparePassword(password)
 
-        if(!matchPassword){
+        if(!isValidPassword){
+            
+            logger.warn("Invalid Credentials");
+
             return sendError(
                 res,
                 401,
@@ -182,24 +208,147 @@ exports.login = async(req,res) => {
             );
         }
 
-        const payload = {
-            userId : findData._id,
-            username : findData.username,
-            role : findData.role
+        const {accessToken,refreshToken} = await generateTokens(user)
+
+
+
+        await RefreshToken.create({
+            token: refreshToken,
+            user: user._id,
+            expiresAt: new Date(Date.now() + 7 * 24 * 60 * 60 * 1000)
+        });
+
+        return sendSuccess(
+            res,
+            201,
+            "User Login Successfully",
+            {
+                accessToken,
+                refreshToken
+            }
+        );
+    }catch(error){
+        console.log(error)
+
+        logger.error("Login Error Occured",error)
+
+        return sendError(
+            res,
+            500,
+            "Internal Server Error"
+        );
+    }
+}
+
+
+exports.refreshTokenController = async(req,res) => {
+    try{
+        const {refreshToken} = req.body
+
+        if(!refreshToken){
+            logger.warn("Refresh token  Missing");
+
+            return sendError(
+                res,
+                401,
+                "Refresh token  Missing"
+            );
         }
 
-        const token = jwt.sign(payload,process.env.JWT_SECRET,{
-            expiresIn : '1d'
-        })
+        const token = await RefreshToken.findOne({token:refreshToken})
+
+        if(!token || new Date() > token.expiresAt){
+            logger.warn("InValid Token");
+
+            return sendError(
+                res,
+                401,
+                "InValid Refresh token"
+            );
+        }
+
+        const user = await User.findById(token.user)
+
+        if(!user){
+            logger.warn("User not found");
+
+            return sendError(
+                res,
+                401,
+                "User not found"
+            );
+        }
+
+
+        const {accessToken: newAccessToken,refreshToken : newRefreshToken} = await generateTokens(user)
+
+        //delete the old token 
+        await RefreshToken.deleteOne({_id: token._id})
+
+        return sendSuccess(
+            res,
+            201,
+            "new Tokens Available",
+            {
+                accessToken : newAccessToken,
+                refreshToken : newRefreshToken
+            }
+        );
+         
+
+    }catch(error){
+        console.log(error)
+
+        logger.error("Refresh Token Error Occured",error)
+
+        return sendError(
+            res,
+            500,
+            "Internal Server Error"
+        );
+    }
+}
+
+
+exports.logout = async(req,res) => {
+    try{
+        const {refreshToken} = req.body
+
+        if(!refreshToken){
+            logger.warn("Refresh token  Missing");
+
+            return sendError(
+                res,
+                401,
+                "Refresh token  Missing"
+            );
+        }
+
+        const token = await RefreshToken.findOne({token:refreshToken})
+
+        if(!token || new Date() > token.expiresAt){
+            logger.warn("InValid Token");
+
+            return sendError(
+                res,
+                401,
+                "InValid Refresh token"
+            );
+        }
+
+        await RefreshToken.deleteOne({token})
+
+        logger.info("refresh token deleted successfully")
 
         return sendSuccess(
             res,
             200,
-            "User Login Successfully",
-            { token }
+            "Logout Successfully",
         );
     }catch(error){
         console.log(error)
+
+        logger.error("Logout Error Occured",error)
 
         return sendError(
             res,
