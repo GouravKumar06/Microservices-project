@@ -5,6 +5,7 @@ const { sendSuccess,sendError } = require('../helpers/responseHelpers');
 const logger = require('../utils/logger');
 const { validateRegistration, validateLogin } = require('../utils/validation');
 const { generateTokens } = require('../utils/generateToken');
+const jwt = require('jsonwebtoken');
 
 exports.register = async(req,res) => {
     logger.info("Registration End Point Start...")
@@ -246,12 +247,24 @@ exports.refreshTokenController = async(req,res) => {
         const {refreshToken} = req.body
 
         if(!refreshToken){
-            logger.warn("Refresh token  Missing");
+            logger.warn("Refresh token Missing");
 
             return sendError(
                 res,
                 401,
                 "Refresh token  Missing"
+            );
+        }
+
+        const decoded = jwt.verify(refreshToken, process.env.REFRESH_TOKEN_SECRET);
+
+        if(!decoded || !decoded.userId){
+            logger.warn("Invalid Refresh Token");
+
+            return sendError(
+                res,
+                401,
+                "Invalid Refresh Token"
             );
         }
 
@@ -279,11 +292,10 @@ exports.refreshTokenController = async(req,res) => {
             );
         }
 
-
-        const {accessToken: newAccessToken,refreshToken : newRefreshToken} = await generateTokens(user)
-
         //delete the old token 
         await RefreshToken.deleteOne({_id: token._id})
+
+        const {accessToken: newAccessToken,refreshToken : newRefreshToken} = await generateTokens(user)
 
         return sendSuccess(
             res,
@@ -324,6 +336,18 @@ exports.logout = async(req,res) => {
             );
         }
 
+        const decoded = jwt.verify(refreshToken, process.env.REFRESH_TOKEN_SECRET);
+
+        if(!decoded || !decoded.userId){
+            logger.warn("Invalid Refresh Token");
+
+            return sendError(
+                res,
+                401,
+                "Invalid Refresh Token"
+            );
+        }
+
         const token = await RefreshToken.findOne({token:refreshToken})
 
         if(!token || new Date() > token.expiresAt){
@@ -336,7 +360,9 @@ exports.logout = async(req,res) => {
             );
         }
 
-        await RefreshToken.deleteOne({token})
+        await RefreshToken.deleteOne({
+            token: refreshToken
+        });
 
         logger.info("refresh token deleted successfully")
 
