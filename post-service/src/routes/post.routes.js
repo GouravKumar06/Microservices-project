@@ -8,7 +8,7 @@ router.use(isAuthenticated)
 router.post('/create-post', createPost);
 router.get('/get-All-posts',getAllPosts);
 router.get('/get-post/:id',getPost);
-router.put("/:id",updatePost);
-router.delete("/:id", deletePost);
+router.put("/update-post/:id",updatePost);
+router.delete("/delete-post/:id", deletePost);
 
 module.exports = router;

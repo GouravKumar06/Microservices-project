@@ -12,7 +12,7 @@ const app = express();
 const PORT = process.env.PORT;
 
 
-// proxy options for identity routes
+// proxy options for identity service routes
 const identityProxyOptions = { 
     proxyReqPathResolver: (req) => {
 
@@ -33,7 +33,7 @@ const identityProxyOptions = {
 }
 
 
-// proxy options for post routes
+// proxy options for post  service routes
 const postProxyOptions = { 
     proxyReqPathResolver: (req) => {
 
@@ -53,6 +53,26 @@ const postProxyOptions = {
     }
 }
 
+
+// proxy options for media service routes
+const mediaProxyOptions = { 
+    proxyReqPathResolver: (req) => {
+
+        const path = req.originalUrl.replace(
+            "/v3/api/media",
+            `/${process.env.MEDIA_VERSION}/api/media`
+        );
+
+        console.log("Proxy Path:", path);
+
+        return path; 
+
+    },
+    proxyErrorHandler: (err, res, next) => {
+        console.error('Proxy error:', err);
+        res.status(500).json({ error: 'Proxy error' });
+    }
+}
 
 //middleware
 app.use(helmet());
@@ -93,12 +113,31 @@ app.use('/v2/api/post',isAuthenticated,proxy(process.env.POST_SERVICE_URL, {
 }));
 
 
+app.use('/v3/api/media',isAuthenticated,proxy(process.env.MEDIA_SERVICE_URL, { 
+    ...mediaProxyOptions,
+    proxyReqOptDecorator: (proxyReqOpts, srcReq) => {
+        proxyReqOpts.headers['x-user-id'] = srcReq.user.userId
+        if(!proxyReqOpts.headers['content-type'].startsWith('multipart/form-data')){
+            proxyReqOpts.headers['content-type'] = 'application/json';
+        }
+        return proxyReqOpts;
+    },
+    userResDecorator: (proxyRes, proxyResData, userReq, userRes) => {
+        logger.info(`Proxying request to ${process.env.MEDIA_SERVICE_URL} with url = ${userReq.originalUrl}`);
+        return proxyResData;
+    },
+    parseReqBody: false // Important for file uploads as we don't want to parse the body before sending it to the media service
+}));
+
+
 
 app.listen(PORT, () => {
     console.log(`API Gateway is running on port http://localhost:${PORT}`);
     console.log(`Proxying requests to Identity Service at ${process.env.IDENTITY_SERVICE_URL}`);
     console.log(`Proxying requests to post Service at ${process.env.POST_SERVICE_URL}`);
+    console.log(`Proxying requests to media Service at ${process.env.MEDIA_SERVICE_URL}`);
     console.log(`Proxying requests to Identity Service with version ${process.env.AUTH_VERSION}`);
     console.log(`Proxying requests to post Service with version ${process.env.POST_VERSION}`);
+    console.log(`Proxying requests to media Service with version ${process.env.MEDIA_VERSION}`);
 });
 
