@@ -98,3 +98,13 @@
 {"level":"info","message":"Proxying request to http://localhost:8002 with url = /v2/api/post/create-post","service":"API-Gateway","timestamp":"2026-07-01T13:49:02.076Z"}
 {"level":"warn","message":"Unauthorized access from API gateway","service":"API-Gateway","timestamp":"2026-07-01T13:49:07.768Z"}
 {"level":"info","message":"Proxying request to http://localhost:8002 with url = /v2/api/post/get-All-posts","service":"API-Gateway","timestamp":"2026-07-01T13:49:07.807Z"}
+{"level":"warn","message":"Unauthorized access from API gateway","service":"API-Gateway","timestamp":"2026-07-04T12:42:07.869Z"}
+{"level":"info","message":"Proxying request to http://localhost:8003 with url = /v3/api/media/upload-media","service":"API-Gateway","timestamp":"2026-07-04T12:42:07.955Z"}
+{"level":"warn","message":"Unauthorized access from API gateway","service":"API-Gateway","timestamp":"2026-07-04T12:43:10.438Z"}
+{"level":"info","message":"Proxying request to http://localhost:8003 with url = /v3/api/media/upload-media","service":"API-Gateway","timestamp":"2026-07-04T12:43:13.687Z"}
+{"level":"warn","message":"Unauthorized access from API gateway","service":"API-Gateway","timestamp":"2026-07-04T12:50:48.540Z"}
+{"level":"info","message":"Proxying request to http://localhost:8002 with url = /v2/api/post/create-post","service":"API-Gateway","timestamp":"2026-07-04T12:50:48.888Z"}
+{"level":"warn","message":"Unauthorized access from API gateway","service":"API-Gateway","timestamp":"2026-07-04T12:51:00.920Z"}
+{"level":"info","message":"Proxying request to http://localhost:8002 with url = /v2/api/post/get-All-posts","service":"API-Gateway","timestamp":"2026-07-04T12:51:01.019Z"}
+{"level":"warn","message":"Unauthorized access from API gateway","service":"API-Gateway","timestamp":"2026-07-04T12:51:46.934Z"}
+{"level":"info","message":"Proxying request to http://localhost:8002 with url = /v2/api/post/delete-post/6a4901a8c36b4fcd87c18af6","service":"API-Gateway","timestamp":"2026-07-04T12:51:46.980Z"}

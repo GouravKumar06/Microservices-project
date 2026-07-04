@@ -1046,3 +1046,6 @@
 {"level":"info","message":"MongoDB connected successfully","service":"identity-service","timestamp":"2026-07-01T13:48:09.718Z"}
 {"level":"info","message":"🚀 Hybrid Server fully live on port 8001!","service":"identity-service","timestamp":"2026-07-01T13:48:09.724Z"}
 {"level":"info","message":"👉 REST APIs: http://localhost:8001","service":"identity-service","timestamp":"2026-07-01T13:48:09.725Z"}
+{"level":"info","message":"MongoDB connected successfully","service":"identity-service","timestamp":"2026-07-04T12:38:23.607Z"}
+{"level":"info","message":"🚀 Hybrid Server fully live on port 8001!","service":"identity-service","timestamp":"2026-07-04T12:38:23.614Z"}
+{"level":"info","message":"👉 REST APIs: http://localhost:8001","service":"identity-service","timestamp":"2026-07-04T12:38:23.614Z"}
