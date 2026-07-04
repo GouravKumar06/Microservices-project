@@ -8,7 +8,8 @@ const { createRedisLimiter, createRateLimiter } = require('./middleware/rateLimi
 
 //routes
 const urlVersioning = require('./middleware/apiVersioning');
-const postRoutes = require('./routes/post.routes')
+const postRoutes = require('./routes/post.routes');
+const { connectRabbitMQ } = require('./utils/rabbitmq');
 
 const app = express();
 const PORT = process.env.PORT;
@@ -49,25 +50,11 @@ const startServer = async () => {
     try{
         await connectDB();
 
-        // 🚀 Start Apollo Server first
-        // await server.start();
-
-        // // redisConnection()
-        // await client.connect()
-
-        // await redisConnection(); 
-
-        // await initEventManager();
-
-        // app.use('/graphql', expressMiddleware(server, {
-        //     context: buildAuthContext 
-        // }));
+        await connectRabbitMQ();
 
         app.listen(PORT, () => {
             logger.info(`🚀 Hybrid Server fully live on port ${PORT}!`);
             logger.info(`👉 REST APIs: http://localhost:${PORT}`);
-            // logger.info(`👉 GraphQL Endpoint: http://localhost:${PORT}/graphql`);
-            // logger.info("redis client connected successfully");
         });
 
     }catch(error){

@@ -1,6 +1,7 @@
 const redis = require('../database/redis');
 const Post = require('../models/Post');
-const logger = require('../utils/logger')
+const logger = require('../utils/logger');
+const { publishEvent } = require('../utils/rabbitmq');
 
 
 async function invalidateCache(){
@@ -34,7 +35,6 @@ exports.createPost = async(req,res) => {
             success:true,
             message:"POST created Successfully"
         })
-
 
 
     }catch(error){
@@ -216,6 +216,13 @@ exports.deletePost = async (req, res) => {
                 message: "Post not found or you are not authorized to delete this post"
             });
         }
+
+        //publish the post deleted event to RabbitMQ
+        await publishEvent("deleted", { 
+            postId: id, 
+            userId: req.user.userId,
+            mediaIds: post.mediaIds 
+        });
 
         // Invalidate Cache
         await invalidatePostCache(id);

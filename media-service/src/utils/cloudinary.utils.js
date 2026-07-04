@@ -27,3 +27,17 @@ exports.uploadToCloudinary = (file) => {
         streamifier.createReadStream(file.buffer).pipe(stream);
     });
 }
+
+
+exports.deleteFromCloudinary = async (publicId) => {
+    try {
+        const result = await cloudinary.uploader.destroy(publicId);
+
+        logger.info(`Media deleted from Cloudinary: ${publicId}`, result);
+
+        return result;
+    }catch(err){
+        logger.error("Error deleting from Cloudinary:", err);
+        throw err;
+    }
+}

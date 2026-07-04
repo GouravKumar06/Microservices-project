@@ -8,7 +8,9 @@ const { createRedisLimiter, createRateLimiter } = require('./middleware/rateLimi
 
 //routes
 const urlVersioning = require('./middleware/apiVersioning');
-const mediaRoutes = require('./routes/media.routes')
+const mediaRoutes = require('./routes/media.routes');
+const { connectRabbitMQ, consumeEvent } = require('./utils/rabbitmq');
+const { handlePostDeletedEvent } = require('./eventHandlers/media.event');
 
 const app = express();
 const PORT = process.env.PORT;
@@ -42,6 +44,12 @@ app.use('/v3/api/media',mediaRoutes);
 
 const startServer = async () => {
     try{
+
+        await connectRabbitMQ();
+
+        // consume all the events from RabbitMQ
+        await consumeEvent("deleted",handlePostDeletedEvent);
+
         await connectDB();
 
         // 🚀 Start Apollo Server first
