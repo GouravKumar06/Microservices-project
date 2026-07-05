@@ -29,6 +29,14 @@ exports.createPost = async(req,res) => {
 
         logger.info("POST created Successfully")
 
+        //publish the post created event to RabbitMQ
+        await publishEvent("created", { 
+            postId: newCreatedPost._id.toString(), 
+            userId: newCreatedPost.user.toString(),
+            content: newCreatedPost.content,
+            createdAt: newCreatedPost.createdAt
+        });
+
         await invalidateCache()
 
         return res.status(201).json({

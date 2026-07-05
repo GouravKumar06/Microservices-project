@@ -5,11 +5,8 @@ let connection = null;
 let channel = null;
 
 
-const EVENT_TYPES = {
-    POST_CREATED: "post.created",
-    POST_UPDATED: "post.updated",
-    POST_DELETED: "post.deleted"
-};
+const EXCHANGE_NAME = "post_events";
+
 
 exports.connectRabbitMQ = async () => {
     try {
@@ -17,7 +14,7 @@ exports.connectRabbitMQ = async () => {
 
         channel = await connection.createChannel();
 
-        await channel.assertExchange(EVENT_TYPES.POST_DELETED, "topic", { durable: false }); // durable: false means the exchange won't survive a broker restart
+        await channel.assertExchange(EXCHANGE_NAME, "topic", { durable: false }); // durable: false means the exchange won't survive a broker restart
         logger.info("Connected to RabbitMQ");
 
         return channel;
@@ -33,7 +30,7 @@ exports.publishEvent = async(routingKey,message) => {
             logger.error("RabbitMQ channel is not established. Cannot publish event.");
             return;
         }
-        await channel.publish(EVENT_TYPES.POST_DELETED, routingKey, Buffer.from(JSON.stringify(message)));
+        await channel.publish(EXCHANGE_NAME, routingKey, Buffer.from(JSON.stringify(message)));
         logger.info(`Event published to RabbitMQ with routing key: ${routingKey}`);
     }catch(error){
         logger.error("Error publishing event to RabbitMQ", error);

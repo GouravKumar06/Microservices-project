@@ -74,6 +74,26 @@ const mediaProxyOptions = {
     }
 }
 
+//search service proxy options
+const searchProxyOptions = { 
+    proxyReqPathResolver: (req) => {
+
+        const path = req.originalUrl.replace(
+            "/v4/api/search",
+            `/${process.env.SEARCH_VERSION}/api/search`
+        );
+
+        console.log("Proxy Path:", path);
+
+        return path; 
+
+    },
+    proxyErrorHandler: (err, res, next) => {
+        console.error('Proxy error:', err);
+        res.status(500).json({ error: 'Proxy error' });
+    }
+}
+
 //middleware
 app.use(helmet());
 app.use(configureCors())
@@ -130,6 +150,21 @@ app.use('/v3/api/media',isAuthenticated,proxy(process.env.MEDIA_SERVICE_URL, {
 }));
 
 
+app.use('/v4/api/search',isAuthenticated,proxy(process.env.SEARCH_SERVICE_URL, { 
+    ...searchProxyOptions,
+    proxyReqOptDecorator: (proxyReqOpts, srcReq) => {
+        proxyReqOpts.headers['content-type'] = 'application/json';
+        proxyReqOpts.headers['x-user-id'] = srcReq.user.userId
+        return proxyReqOpts;
+    },
+    userResDecorator: (proxyRes, proxyResData, userReq, userRes) => {
+        logger.info(`Proxying request to ${process.env.SEARCH_SERVICE_URL} with url = ${userReq.originalUrl}`);
+        return proxyResData;
+    }
+}));
+
+
+
 
 app.listen(PORT, () => {
     console.log(`API Gateway is running on port http://localhost:${PORT}`);
@@ -139,5 +174,7 @@ app.listen(PORT, () => {
     console.log(`Proxying requests to Identity Service with version ${process.env.AUTH_VERSION}`);
     console.log(`Proxying requests to post Service with version ${process.env.POST_VERSION}`);
     console.log(`Proxying requests to media Service with version ${process.env.MEDIA_VERSION}`);
+    console.log(`Proxying requests to search Service with version ${process.env.SEARCH_VERSION}`);
+    console.log(`Proxying requests to search Service at ${process.env.SEARCH_SERVICE_URL}`);
 });
 
