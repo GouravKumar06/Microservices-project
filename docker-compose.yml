@@ -1,0 +1,156 @@
+version: '3.8'
+
+services:
+  mongo:
+    image: mongo:latest
+    container_name: mongo
+    restart: unless-stopped
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongo-data:/data/db
+    networks:
+      - microservice-network
+
+  redis:
+    image: redis:7-alpine
+    container_name: redis
+    restart: unless-stopped
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis-data:/data
+    networks:
+      - microservice-network 
+
+  rabbitmq:
+    image: rabbitmq:4-management
+    container_name: rabbitmq
+    restart: unless-stopped
+    ports:
+      - "5672:5672"
+      - "15672:15672"
+    networks:
+      - microservice-network         
+
+  api-gateway:
+    build: 
+      context: ./api-gateway
+      dockerfile: Dockerfile
+
+    container_name: api-gateway  
+
+    ports:
+      - "8000:8000"
+    env_file: ./api-gateway/.env
+    depends_on:
+      - identity-service
+      - post-service
+      - media-service
+      - search-service
+      - redis
+
+    restart: unless-stopped  
+    networks:
+      - microservice-network
+
+  identity-service:
+    build:
+      context: ./identity-service
+      dockerfile: Dockerfile
+
+    container_name: identity-service
+
+    ports:
+      - "8001:8001"
+
+    env_file:
+      - ./identity-service/.env
+
+    depends_on:
+      - mongo
+      - redis
+      - rabbitmq
+
+    restart: unless-stopped
+
+    networks:
+      - microservice-network    
+
+  post-service:
+    build:
+      context: ./post-service
+      dockerfile: Dockerfile
+
+    container_name: post-service
+
+    ports:
+      - "8002:8002"
+
+    env_file:
+      - ./post-service/.env
+
+    depends_on:
+      - mongo
+      - redis
+      - rabbitmq
+
+    restart: unless-stopped
+
+    networks:
+      - microservice-network    
+
+  media-service:
+    build:
+      context: ./media-service
+      dockerfile: Dockerfile
+
+    container_name: media-service
+
+    ports:
+      - "8003:8003"
+
+    env_file:
+      - ./media-service/.env
+
+    depends_on:
+      - mongo
+      - redis
+      - rabbitmq
+
+    restart: unless-stopped
+
+    networks:
+      - microservice-network    
+
+  search-service:
+    build:
+      context: ./search-service
+      dockerfile: Dockerfile
+
+    container_name: search-service
+
+    ports:
+      - "8004:8004"
+
+    env_file:
+      - ./search-service/.env
+
+    depends_on:
+      - mongo
+      - redis
+      - rabbitmq
+
+    restart: unless-stopped
+
+    networks:
+      - microservice-network    
+
+
+volumes:
+  mongo-data:
+  redis-data:  
+
+networks:
+  microservice-network:
+    driver: bridge     
